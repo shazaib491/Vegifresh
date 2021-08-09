@@ -1,0 +1,106 @@
+<div class="hero-wrap hero-bread" style="background-image: url('./assets/images/bg_1.jpg');">
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Cart</span></p>
+        <h1 class="mb-0 bread">My Cart</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section ftco-cart">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+        <div class="cart-list">
+          <table class="table">
+            <thead class="thead-primary">
+              <tr class="text-center">
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>Product name</th>
+                <th>Discount</th>
+                <th>Price</th>
+                <th>Kilogram</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <caption> <div class="col-md-12" *ngIf="bucket?.length===0">
+              <h5 class="text-center">Cart Bucket is Empty</h5>
+            </div></caption>
+            <tbody *ngFor="let item of bucket">
+              <tr class="text-center"  (click)="item.cartStatus!=item.cartStatus" *ngIf="item.cartStatus">
+                <td class="product-remove"><a href="javascript:void(0)" (click)="removeTocart(item)" ><span class="ion-ios-close"></span></a></td>
+                <td class="image-prod">
+                  <div class="img" [ngStyle]="{'background-image': 'url(' + item.productdetail.p_img + ')'}"></div>
+                </td>
+                <td class="product-name">
+                  <h3>{{item.productdetail.p_name}}</h3>
+                  <p>{{item.productdetail?.p_disc}}</p>
+                </td>
+
+                <td class="price">
+                  {{item.productdetail.discount}}
+                </td>
+
+
+                <td class="price">{{item.p_price}}</td>
+
+                <td class="quantity">
+                  <div class="input-group mb-3">
+                    <input type="text" name="qty"   [(ngModel)]="item.quantity"    class="quantity form-control input-number" [value]="item.quantity" min="1"
+                      max="100">
+                  </div>
+                </td>
+                <td class="total">{{item.quantity * item.p_price}}</td>
+              </tr><!-- END TR-->
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+
+    </div>
+    <div class="row justify-content-center">
+      <!-- <div class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
+        <div class="cart-total mb-3 shadow ">
+          <h3>Coupon Code</h3>
+          <p>Enter your coupon code if you have one</p>
+          <form action="#" class="info">
+            <div class="form-group">
+              <label for="">Coupon code</label>
+              <input type="text" class="form-control text-left px-3" placeholder="">
+            </div>
+          </form>
+        </div>
+        <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Apply Coupon</a></p>
+      </div> -->
+
+      <div class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated " >
+        <div class="cart-total mb-3 shadow ">
+          <h3>Cart Totals</h3>
+          <p class="d-flex">
+            <span>Subtotal</span>
+            <span>{{grandTotal()}}.00</span>
+          </p>
+          <p class="d-flex">
+            <span>Delivery</span>
+            <span>30.00</span>
+          </p>
+          <p class="d-flex">
+            <span>Discount</span>
+            <span>{{discountTotal()}}%</span>
+          </p>
+          <hr>
+          <p class="d-flex total-price">
+            <span>Total</span>
+            <span>{{cartTotal()}}</span>
+          </p>
+        </div>
+
+        <p *ngIf="bucket?.length!==0"><a href="javascript:void(0)" (click)="checkout()"  class="btn mx-auto d-block btn-primary py-3 px-4">Proceed to Checkout</a></p>
+      </div>
+    </div>
+  </div>
+</section>

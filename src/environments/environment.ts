@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  headerUrl: 'http://localhost:3000/front/header',
+  logoUrl: 'http://localhost:3000/front/logo',
+  sliderUrl: 'http://localhost:3000/front/slider',
+  productUrl: 'http://localhost:3000/front',
+  authUrl:"http://localhost:3000/f_auth",
+  cartUrl:"http://localhost:3000/carts",
+  wishlistUrl:"http://localhost:3000/wishlist",
+  bankUrl:"http://localhost:3000/bank",
+  bookingUrl:"http://localhost:3000/booking"
 };
 
 /*

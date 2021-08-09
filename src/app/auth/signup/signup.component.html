@@ -1,0 +1,95 @@
+<div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+        <p class="breadcrumbs"><span class="mr-2"><a routerLink="auth/signup">Home</a></span> <span>Signup</span></p>
+        <h1 class="mb-0 bread">Signup</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 class="text-center mt-3">Signup</h1>
+
+<div class="container">
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <div class="row">
+      <div class="col-md-6 ">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" name="uname" minlength="4" ngModel class="form-control" placeholder="Enter your name"
+            #nameInput="ngModel" required>
+          <div class="text-danger" *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)">
+            <div *ngIf="nameInput.errors?.required">
+              Name is required.
+            </div>
+            <div *ngIf="nameInput.errors?.minlength">
+              Name must be at least 4 characters long.
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="text" name="email" ngModel #emailInput="ngModel" class="form-control"
+            placeholder="Enter your email" required>
+            <div class="text-danger" *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+              <div *ngIf="emailInput.errors?.required">
+                Email is required
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Mobile</label>
+          <input type="text" ngModel name="mobile" #mobileInput="ngModel" minlength="10" maxlength="13"  class="form-control"
+            placeholder="Enter your mobile" required>
+            <div class="text-danger" *ngIf="mobileInput.invalid && (mobileInput.dirty || mobileInput.touched)">
+              <div *ngIf="mobileInput.errors?.required">
+                Mobile is required
+              </div>
+              <div *ngIf="mobileInput.errors?.minlength">
+                Mobile no must be at least 10 digit.
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="password" name="password" ngModel #passwordInput="ngModel" class="form-control"
+            placeholder="***************" required>
+            <div class="text-danger" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+              <div *ngIf="passwordInput.errors?.required">
+                password is required
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Confirm Password</label>
+          <input type="password" name="repeat_password" ngModel #repeatInput="ngModel" class="form-control"
+            placeholder="***************" required>
+            <div class="text-danger" *ngIf="repeatInput.invalid && (repeatInput.dirty || repeatInput.touched)">
+              <div *ngIf="repeatInput.errors?.required">
+                repeat-password is required
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-7 mt-3 ">
+        <button type="submit" [disabled]="loginForm.invalid" class="btn border-5  btn-primary ">Singup</button>
+      </div>
+      <div class="col-md-6 m-auto p-4">
+        <a routerLink="/auth" class="text-primary d-flex justify-content-center mt-3">Already have Account</a>
+
+      </div>
+
+
+
+    </div>
+  </form>
+</div>

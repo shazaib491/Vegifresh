@@ -1,0 +1,81 @@
+<div class="hero-wrap hero-bread" style="background-image: url('./assets/images/bg_1.jpg');">
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Wishlist</span></p>
+        <h1 class="mb-0 bread">My Wishlist</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="ftco-section ftco-cart">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+        <div class="cart-list">
+          <table class="table">
+            <thead class="thead-primary">
+              <tr class="text-center">
+                <th>&nbsp;</th>
+                <th class="text-center">Product List</th>
+                <th>&nbsp;</th>
+                <th>Price</th>
+                <th>Added To cart</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="text-center" *ngFor="let item of wishArray">
+                <td class="product-remove"><a href="javascript:void(0)" (click)="removeTocart(item)" ><span class="ion-ios-close"></span></a></td>
+                <td class="image-prod"><div class="img"
+
+                  [ngStyle]="{'background-image': 'url(' + item.productdetail.p_img + ')'}"
+                  ></div></td>
+
+                <td class="product-name">
+                  <h3>{{item.productdetail.p_name}}</h3>
+                </td>
+
+                <td class="price">Rs &emsp;{{item.totalPrice}}</td>
+
+
+                <td class="total">
+                <!-- <a class="btn btn-success w-25 h-25 ">
+                 <span> <i class=" ion-ios-cart text-white ':'far fa-trash-alt'"></i></span>
+                </a> -->
+
+                <a href="javascript:void(0)" (click)="addTocart(item)"  class="buy-now d-flex justify-content-center align-items-center mx-1">
+                  <span><i  (click)="item.productdetail.status = !item.productdetail.status" [class]="(item.productdetail.status)?' far fa-trash-alt ':'ion-ios-cart'"></i></span>
+                  </a>
+
+                </td>
+              </tr><!-- END TR-->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+  <div class="container py-4">
+    <div class="row d-flex justify-content-center py-5">
+      <div class="col-md-6">
+        <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+        <span>Get e-mail updates about our latest shops and special offers</span>
+      </div>
+      <div class="col-md-6 d-flex align-items-center">
+        <form action="#" class="subscribe-form">
+          <div class="form-group d-flex">
+            <input type="text" class="form-control" placeholder="Enter email address">
+            <input type="submit" value="Subscribe" class="submit px-3">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

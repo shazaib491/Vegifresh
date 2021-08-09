@@ -1,0 +1,117 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()" *ngIf="userIsAutheticated">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>
+    <a routerLink="/dashboard">
+      My Application
+    </a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li class="mt-3">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/register" *ngIf="!userIsAutheticated">
+          <i class="fas fa-user-plus" style="font-size:15px;"></i>
+          <span>&emsp;Singup</span></button>
+        <button mat-menu-item routerLink="/" *ngIf="!userIsAutheticated">
+          <i class="fas fa-sign-in-alt"></i>
+          <span>&emsp;login</span></button>
+        <button mat-menu-item *ngIf="userIsAutheticated" (click)="onLogout()">
+          <span class="fas fa-sign-out-alt" style="font-size:15px;"></span>
+          <span>&emsp;Logout</span>
+        </button>
+      </mat-menu>
+      <!-- <button mat-button routerLink="/register" *ngIf="!userIsAutheticated">Singup</button>
+      <button mat-button routerLink="/" *ngIf="!userIsAutheticated">login</button>
+      <button mat-button *ngIf="userIsAutheticated" (click)="onLogout()">Logout</button> -->
+    </li>
+  </ul>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <mat-nav-list *ngIf="userIsAutheticated">
+      <!-- -----------------------------header----------------------------- -->
+      <button class="w-100 border mt-2 border-top-0 border-start-0 border-end-0" mat-button
+        [matMenuTriggerFor]="animals">Header</button>
+      <mat-menu #animals="matMenu" class="ms-3">
+        <button mat-menu-item [matMenuTriggerFor]="top">Top</button>
+        <button mat-menu-item [matMenuTriggerFor]="logo">logo</button>
+      </mat-menu>
+      <mat-menu #top="matMenu">
+        <button mat-menu-item [routerLink]="['/dashboard/topbar-create']">
+          Add Topbar
+        </button>
+        <button mat-menu-item [routerLink]="['/dashboard/topbar']">
+          Topbar
+        </button>
+      </mat-menu>
+      <mat-menu #logo="matMenu">
+        <button mat-menu-item [routerLink]="['/dashboard/logo-create']">Add Logo
+        </button>
+        <button mat-menu-item [routerLink]="['/dashboard/logo-list']">logo
+        </button>
+      </mat-menu>
+      <!-- ------------------------------header---------------------------- -->
+
+      <!-- ------------------------------Slider---------------------------- -->
+      <button class="w-100 border mt-2 border-top-0 border-start-0 border-end-0" mat-button
+        [matMenuTriggerFor]="sliders">Slider</button>
+      <mat-menu #sliders="matMenu" class="ms-3">
+        <button mat-menu-item [matMenuTriggerFor]="slides">sliders</button>
+      </mat-menu>
+      <mat-menu #slides="matMenu">
+        <button mat-menu-item [routerLink]="['/dashboard/slides-create']">
+          add Slides
+        </button>
+        <button mat-menu-item [routerLink]="['/dashboard/slides-list']">
+          Slides
+        </button>
+      </mat-menu>
+      <!-- ------------------------------Slider---------------------------- -->
+
+      <!-- ------------------------------Category---------------------------- -->
+      <button class="w-100 border mt-2 border-top-0 border-start-0 border-end-0" mat-button
+        [matMenuTriggerFor]="afterMenu">Category</button>
+      <mat-menu class="w-100" #afterMenu="matMenu" xPosition="before">
+        <button class="" routerLink="category/addCatgeory" mat-menu-item>Add Category</button>
+        <button class="" routerLink="category" mat-menu-item>All Category</button>
+      </mat-menu>
+      <!-- ------------------------------Catgeory---------------------------- -->
+
+
+      <!-- ------------------------------Products---------------------------- -->
+      <button class="w-100 border mt-2 border-top-0 border-start-0 border-end-0" mat-button
+        [matMenuTriggerFor]="menu">Products</button>
+      <mat-menu class="w-100" #menu="matMenu" xPosition="before">
+        <button class="" routerLink="products/addProducts" mat-menu-item>Add Products</button>
+        <button class="" routerLink="products" mat-menu-item>All Products</button>
+      </mat-menu>
+      <!-- ------------------------------Products---------------------------- -->
+
+      <!---------------------------------carts------------------------------------->
+      <button class="w-100 border mt-2 border-top-0 border-start-0 border-end-0" mat-button
+        [matMenuTriggerFor]="menus">Carts</button>
+      <mat-menu class="w-100" #menus="matMenu" xPosition="before">
+        <button class="" routerLink="carts" mat-menu-item>Carts</button>
+      </mat-menu>
+      <!---------------------------------carts------------------------------------->
+
+        <!---------------------------------USer------------------------------------->
+        <button class="w-100 border mt-2 border-top-0 border-start-0 border-end-0" mat-button
+        [matMenuTriggerFor]="menuss">Users</button>
+      <mat-menu class="w-100" #menuss="matMenu" xPosition="before">
+        <button class="" routerLink="users" mat-menu-item>Users</button>
+      </mat-menu>
+      <!---------------------------------USer------------------------------------->
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

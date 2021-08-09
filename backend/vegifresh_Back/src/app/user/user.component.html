@@ -1,0 +1,42 @@
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading" class="mb-5"></mat-progress-bar>
+<!-- <mat-spinner class="mx-auto d-block" ></mat-spinner> -->
+
+<table class="table w-100 m-auto">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Role</th>
+      <th class="text-center">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let us of user">
+
+
+      <th scope="row"><img src="https://picsum.photos/200/300
+        " alt="" style="width: 50px;height:50px;" class="rounded-circle" ></th>
+      <th scope="row" [class]="us._id===id?'text-info ':''" >{{us.uname }}
+
+      </th>
+      <th scope="row">{{us.email}}</th>
+      <th scope="row">{{us.mobile}}</th>
+      <th scope="row">{{us.role}}</th>
+      <th class="text-center">
+        <button mat-button mat-raised-button color="accent">Delete</button>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="row">
+  <div class="col-md-6 ms-auto mt-4">
+    <mat-paginator #paginator [length]="totalPosts" [pageSize]="postPerPage"  [pageSizeOptions]="pageSizeOptions" (page)="onChangePost($event)" ></mat-paginator>
+  </div>
+</div>
+
+

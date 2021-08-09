@@ -1,0 +1,70 @@
+mat-card{
+  width: 50%;
+  margin:auto;
+  margin-top:50px;
+}
+
+mat-form-field,
+textarea
+{
+width:100%;
+}
+
+button{
+  margin-top: 20px;
+}
+mat-spinner{
+  margin: auto;
+}
+input[type="file"]{
+  visibility: hidden;
+}
+
+.image-preview{
+  height: 5rem;
+  margin:1rem 0;
+}
+.image-preview img{
+  height: 100
+}
+
+table {
+  width: 100%;
+  margin:auto;
+  margin-top:10px;
+}
+
+td{
+  height: 100px;
+  margin-top: 20px;
+}
+button{
+  height:35px;
+}
+
+img{
+  width:100px;
+  height:100px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+ng-container
+{
+  text-align: center;
+
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}

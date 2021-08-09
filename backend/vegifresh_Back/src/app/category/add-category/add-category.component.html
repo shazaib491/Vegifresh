@@ -1,0 +1,14 @@
+<mat-card>
+  <form [formGroup]="form" (submit)="addCategory()">
+    <mat-form-field >
+      <input  matInput type="text" placeholder="Enter Title...." formControlName="category" required>
+      <mat-error *ngIf="f.category.errors">
+        <mat-error *ngIf="f.category.errors.required">
+          Title is required
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <div class="w-100"></div>
+    <button mat-raised-button color="primary" [disabled]="f.invalid" type="submit">Submit</button>
+  </form>
+</mat-card>

@@ -1,0 +1,29 @@
+<mat-card>
+  <form [formGroup]="form" (submit)="addtopBar()">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter email...." formControlName="email" required>
+      <mat-error *ngIf="f.email.errors">
+        <mat-error *ngIf="f.email.errors.required">
+          email is required
+        </mat-error>
+        <mat-error *ngIf="f.email.errors.email">
+          email Must be valid
+        </mat-error>
+      </mat-error>
+
+
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Enter Mobile..." formControlName="mobile" minlength="10">
+      <mat-error *ngIf="f.mobile.errors">
+        <mat-error *ngIf="f.mobile.errors.required">
+          Mobile is Required
+        </mat-error>
+        <mat-error *ngIf="f.mobile.errors.minLength">
+          mobile must be 10 digit
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="f.invalid" type="submit">Submit</button>
+  </form>
+</mat-card>
